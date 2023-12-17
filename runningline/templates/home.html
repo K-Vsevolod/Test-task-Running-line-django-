@@ -1,0 +1,49 @@
+<style type="text/css">
+    .history {
+        width: 300px;
+        border: solid 1px black;
+    }
+
+    .history_entry {
+        margin-bottom: 5px
+    }
+
+    a:link {
+        color: black;
+    }
+
+    a:visited {
+        color: black;
+    }
+
+    a:hover {
+        color: rgb(100 100 100)
+    }
+
+    a:active {
+        color: rgb(200 200 200)
+    }
+</style>
+
+<form action="" method="get">
+    <input type="text" name="text" required>
+    <input type="submit" value="Submit">
+</form>
+
+{% if text %}
+{% include "result.html" %}
+{% endif %}
+
+<br>
+
+<h3>История:</h3>
+<div class="history">
+    <ul>
+        {% for el in history %}
+            <li class="history_entry">
+                <a href="/?text={{ el.text }}">{{ el.text }}</a>
+                <br>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
